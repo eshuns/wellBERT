@@ -1,0 +1,27 @@
+# WellBERT — Python dependencies
+# Install with:  pip install -r requirements.txt
+#
+# GPU note: PyTorch must be installed with the correct CUDA version for your
+# hardware. The version below targets CUDA 11.8 (Google Colab T4 default).
+# Visit https://pytorch.org/get-started/locally/ for other configurations.
+
+# ── Core ML / NLP ─────────────────────────────────────────────────────────────
+torch>=2.0.0
+transformers>=4.38.0
+datasets>=2.18.0
+
+# ── Classical ML ──────────────────────────────────────────────────────────────
+scikit-learn>=1.4.0
+
+# ── NLP utilities ─────────────────────────────────────────────────────────────
+nltk>=3.8.1
+vader-sentiment==3.2.1.1
+
+# ── Data handling ─────────────────────────────────────────────────────────────
+numpy>=1.26.0
+pandas>=2.2.0
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+wordcloud>=1.9.3

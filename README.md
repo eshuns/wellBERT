@@ -21,7 +21,7 @@ Suicidal class to prioritize recall where it matters most clinically.
 ## wellBERT Configuration
 
 <p align="center">
-  <img src="WB_arch.png" width="600">
+  <img src="WB_arch.png" width="400">
 </p>
 ---
 
