@@ -58,6 +58,11 @@ You do not need to create or download it separately.
 
 ---
 
+**📓 Notebook:** The full pipeline with executed outputs — including all figures,
+model training logs, classification reports, and evaluation results — is available
+in [`wellBERT_notebook.ipynb`](wellBERT_notebook.ipynb). If you want to see the
+results without running the code, start there.
+
 ## Which Approach Should I Use?
 
 | | Local Machine | Google Colab |
