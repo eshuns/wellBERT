@@ -31,8 +31,6 @@ from config import LABEL_ORDER, KEEP_WORDS, SEED
 warnings.filterwarnings("ignore")
 
 
-# ── Reproducibility ───────────────────────────────────────────────────────────
-
 def set_seeds(seed: int = SEED) -> None:
     """
     Fix random seeds for Python, NumPy, and (if available) PyTorch.
