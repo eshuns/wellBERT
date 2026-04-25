@@ -121,7 +121,7 @@ def preprocess_transformer(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-# ── 1. Computational Efficiency Benchmarking ──────────────────────────────────
+# ── Computational Efficiency Benchmarking ──────────────────────────────────
 
 def benchmark_efficiency(model, tokenizer, X_test, y_train):
     """Compare inference speed of WellBERT vs LR (TF-IDF)."""
@@ -184,7 +184,7 @@ def benchmark_efficiency(model, tokenizer, X_test, y_train):
     print(f"\nSaved: {path}")
 
 
-# ── 2. Performance by Text Length ─────────────────────────────────────────────
+# ── Performance by Text Length ─────────────────────────────────────────────
 
 def performance_by_length(model, tokenizer, X_test, y_test):
     """Evaluate WellBERT on short (≤median) and long (>median) posts."""
@@ -217,7 +217,6 @@ def performance_by_length(model, tokenizer, X_test, y_test):
     print(classification_report(y_test[long_mask], preds_long,
                                  target_names=LABEL_ORDER, digits=3))
 
-    # Figure
     groups    = [f"Short (≤{median_wc} words; n={short_mask.sum():,})",
                  f"Long (>{median_wc} words); n={long_mask.sum():,})"]
     reps      = [rep_short, rep_long]
@@ -253,7 +252,7 @@ def performance_by_length(model, tokenizer, X_test, y_test):
     print(f"Saved: {path}")
 
 
-# ── 3. OOD Robustness Testing ─────────────────────────────────────────────────
+# ── OOD Robustness Testing ─────────────────────────────────────────────────
 
 def ood_robustness(model, tokenizer):
     """Evaluate WellBERT on 4 out-of-distribution mental health classes."""
@@ -287,7 +286,7 @@ def ood_robustness(model, tokenizer):
         for l, r in rates.items():
             print(f"    → {l:12s}: {r:.1f}%")
 
-    # Save CSV
+
     rows = [{"OOD Class": cls,
              **{f"→ {l} (%)": round(ood_results[cls][l], 1) for l in LABEL_ORDER}}
             for cls in OOD_CLASSES]
@@ -296,7 +295,6 @@ def ood_robustness(model, tokenizer):
     ood_df.to_csv(path, index=False)
     print(f"\nSaved: {path}")
 
-    # Figure
     norm_rates = [ood_results[c]["Normal"]     for c in OOD_CLASSES]
     dep_rates  = [ood_results[c]["Depression"] for c in OOD_CLASSES]
     sui_rates  = [ood_results[c]["Suicidal"]   for c in OOD_CLASSES]
@@ -338,7 +336,7 @@ def ood_robustness(model, tokenizer):
     print(f"Saved: {path}")
 
 
-# ── 4. Qualitative Error Analysis ─────────────────────────────────────────────
+# ── Qualitative Error Analysis ─────────────────────────────────────────────
 
 def error_analysis(X_test, y_test, preds_bert):
     """Collect and display misclassified examples for key confusion pairs."""
@@ -415,7 +413,6 @@ def error_analysis(X_test, y_test, preds_bert):
     print(f"Saved: {path}")
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     def npy(name): return np.load(os.path.join(SPLITS_DIR, f"{name}.npy"),
