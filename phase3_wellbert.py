@@ -123,7 +123,6 @@ class MentalHealthDataset(Dataset):
         }
 
 
-# ── DataLoader worker seed ────────────────────────────────────────────────────
 
 def seed_worker(worker_id: int) -> None:
     """Ensure each DataLoader worker uses a deterministic seed."""
@@ -248,7 +247,6 @@ def predict(model, tokenizer, texts, batch_size: int = INFER_BATCH_SIZE):
     return np.array([ID2LABEL[p] for p in preds])
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
 
