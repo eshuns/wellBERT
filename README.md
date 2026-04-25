@@ -23,7 +23,7 @@ Suicidal class to prioritize recall where it matters most clinically.
 <p align="center">
   <img src="WB_arch.png" width="400">
 </p>
----
+
 
 ## Repository Structure
 
